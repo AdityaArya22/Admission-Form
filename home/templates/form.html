@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Form For College</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar px-5 navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Welcome!!</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+              <a href="/login/" class="btn btn-outline-success" type="submit">Logout</a>
+
+          </div>
+        </div>
+      </nav>
+    <div class="container  mt-3 h">
+        <form class="col-6 mx-auto card p-3" method="post" enctype="multipart/form-data" autocomplete="off">
+            {% csrf_token %}
+            <h4>Admission Form</h4>
+            <hr>
+            <div class="mb-1">
+                <label for="exampleInputEmail1" class="form-label">Student Name</label>
+                <input name="name" type="text" required class="form-control" id="Student-name">
+            </div>
+            <div class="mb-1">
+                <label for="exampleInputPassword1" class="form-label">Student Age</label>
+                <input name="age" type="number" required class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-1">
+                <label for="exampleInputPassword1" class="form-label">Student Email</label>
+                <input name="email" type="email" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Student Phone No</label>
+                <input name="phone" type="number" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Student Address</label>
+                <textarea name="address" class="form-control"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- <div class="mt-5 container">
+        <div class="mx-auto col-6">
+            <form action="">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Search Student</label>
+                    <input name="search" type="text" autocomplete="off" class="form-control" id="">
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+                
+            </form>
+        </div>
+    </div> -->
+
+    <div class="container mt-5">
+        <table class="table table-bordered mt-5">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Update</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stu in Student %}
+                <tr>
+                    <th scope="row">{{forloop.counter }}</th>
+                    <td>{{stu.name}}</td>
+                    <td>{{stu.age}}</td>
+                    <td>{{stu.email}}</td>
+                    <td>{{stu.phone}}</td>
+                    <td>{{stu.address}}</td>
+                    <td>
+                        <a href="/update_data/{{stu.id}}/" class="btn btn-success">Update</a>
+                    </td>
+                    <td>
+                        <a href="/delete_data/{{stu.id}}/" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+:root{
+    --bg-color: #3f3e76;
+    --text-color: #fff;
+    --title-color:#3655ef;
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    
+}
+.title{
+    position: relative;
+    animation-name: move;
+    animation-duration: 3s;
+    position: relative;
+    animation-timing-function:cubic-bezier(0.165, 0.84, 0.44, 1) ;
+}
+.nav{
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+}
+h3,h4{
+    padding: 10px 30px;
+    font-size: 2rem;
+    /* margin: 10px 0; */
+}
+h4{
+    font-size: 1.7rem;
+}
+.skill-items{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.skill-items img{
+    height: 100px;
+    animation-name: move;
+    animation-duration: 6s;
+    position: relative;
+    animation-timing-function:cubic-bezier(0.165, 0.84, 0.44, 1) ;
+}
+.project{
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    justify-content: center;
+    position: relative;
+    animation-name: move;
+    animation-duration: 7s;
+    position: relative;
+    animation-timing-function:cubic-bezier(0.165, 0.84, 0.44, 1) ;
+    padding: 0 30px;
+}
+.project img{
+    height: 40px;
+    margin: 0 10px;
+
+}
+.project span{
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+.education{
+    text-align: center;
+    font-size: 1.8rem;
+    
+    position: relative;
+    animation-name: move;
+    animation-duration: 12s;
+    position: relative;
+    animation-timing-function:cubic-bezier(0.165, 0.84, 0.44, 1) ;
+}
+.education .edu{
+    margin: 30px 0;
+}
+.contact{
+    text-align: center;
+    padding: 20px 0;
+    
+    position: relative;
+    animation-name: move;
+    animation-duration: 15s;
+    position: relative;
+    animation-timing-function:cubic-bezier(0.165, 0.84, 0.44, 1) ;
+}
+.contact span{
+    font-size: 1.6rem;
+    margin: 0 5px;
+}
+.contact b{
+    font-size: 1.6rem;
+}
+@media (max-width:1180px) {
+    .skill-items{
+
+        flex-wrap: wrap;
+    }
+}
+@media (max-width:600px) {
+    .skill-items img{
+        height: 35px;
+    }
+
+}
+
+@keyframes move {
+    0%{
+        left: -200%;
+    }
+    100%{
+        left:0 ;
+    }
+
+}
